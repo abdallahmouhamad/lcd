@@ -12,8 +12,18 @@ import ContactBlock from '../components/sections/ContactBlock';
 
 function Section1Hero() {
   return (
-    <section className="bg-navy pt-32 pb-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative bg-navy pt-32 pb-20 overflow-hidden">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=1400&q=80"
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ objectPosition: '50% 30%' }}
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-navy/85" />
+      </div>
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <SectionLabel text="Admissions" light />
         <h1
           className="font-heading font-extrabold text-white leading-tight mb-5"
@@ -21,7 +31,7 @@ function Section1Hero() {
         >
           Admissions : l&apos;avenir de votre enfant commence ici
         </h1>
-        <p className="font-body text-white/80 italic text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/85 italic text-xl mb-4 max-w-2xl mx-auto leading-relaxed">
           Au Lycée Canadien de Dakar, nous pensons que chaque élève mérite une éducation qui le prépare
           aux opportunités du monde tout en lui donnant les moyens d&apos;agir chez lui.
         </p>

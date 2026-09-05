@@ -28,33 +28,33 @@ function PlaneIconSVG({ size = 18, className = '' }: { size?: number; className?
 
 function Section1Hero() {
   return (
-    <section className="relative bg-offwhite pt-32 pb-20 overflow-hidden">
+    <section className="relative bg-navy pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=75"
+          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80"
           alt=""
           className="w-full h-full object-cover"
           style={{ objectPosition: '50% 30%' }}
           loading="eager"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(242,244,247,0.93)" }} />
+        <div className="absolute inset-0 bg-navy/85" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionLabel text="Après le lycée" />
+        <SectionLabel text="Après le lycée" light />
         <h1
-          className="font-heading font-extrabold text-navy leading-tight mb-5"
+          className="font-heading font-extrabold text-white leading-tight mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
         >
           Le diplôme n&apos;est pas une fin.{' '}
-          <span className="text-red-lcd">C&apos;est un départ.</span>
+          <span className="text-gold">C&apos;est un départ.</span>
         </h1>
-        <p className="font-body text-navy/70 italic text-xl mb-4 max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/85 italic text-xl mb-4 max-w-2xl mx-auto leading-relaxed">
           La plupart des établissements s&apos;arrêtent au diplôme.
           Nous considérons que notre travail commence vraiment là.
           L&apos;orientation universitaire est intégrée au parcours
           dès la Seconde, et elle ne se limite pas à une destination.
         </p>
-        <p className="font-body text-navy/60 max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/70 max-w-2xl mx-auto leading-relaxed">
           Au Lycée Canadien de Dakar, l&apos;orientation universitaire n&apos;est pas un rendez-vous de fin
           d&apos;année. C&apos;est un accompagnement continu, intégré au parcours de chaque élève.
         </p>

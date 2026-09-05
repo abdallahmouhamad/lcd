@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { CheckCircle2, Heart, GraduationCap, Briefcase, Network, Target, Star, Wrench } from 'lucide-react';
+import { CheckCircle2, Heart, GraduationCap, Briefcase, Network, Target, Star, Wrench, ChevronDown } from 'lucide-react';
 import SEOHead from '../components/ui/SEOHead';
 import SectionLabel from '../components/ui/SectionLabel';
 import ContactBlock from '../components/sections/ContactBlock';
@@ -11,26 +11,26 @@ import ContactBlock from '../components/sections/ContactBlock';
 
 function Section1Hero() {
   return (
-    <section className="relative bg-offwhite pt-32 pb-20 overflow-hidden">
+    <section className="relative bg-navy pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=75"
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&q=80"
           alt=""
           className="w-full h-full object-cover"
           style={{ objectPosition: '55% center' }}
           loading="eager"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(242,244,247,0.93)" }} />
+        <div className="absolute inset-0 bg-navy/85" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionLabel text="Partenariats" />
+        <SectionLabel text="Partenariats" light />
         <h1
-          className="font-heading font-extrabold text-navy leading-tight mb-5"
+          className="font-heading font-extrabold text-white leading-tight mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
         >
           Construire ensemble de nouvelles opportunités
         </h1>
-        <p className="font-body text-navy/70 italic text-xl max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/85 italic text-xl max-w-2xl mx-auto leading-relaxed">
           Au Lycée Canadien de Dakar, nous sommes convaincus que l&apos;éducation est une responsabilité
           partagée. Nous travaillons avec des organisations qui partagent notre engagement : élargir
           l&apos;accès à une éducation de qualité et ouvrir de nouveaux horizons aux élèves.
@@ -340,17 +340,21 @@ function Section4Formulaire() {
               <label className="font-heading font-semibold text-white/70 text-xs uppercase tracking-wide block mb-1.5">
                 Type de partenariat *
               </label>
-              <select
-                value={form.type_partenariat}
-                onChange={(e) => setForm({ ...form, type_partenariat: e.target.value })}
-                className={fieldClass(errors.type_partenariat)}
-              >
-                <option value="">— Sélectionner —</option>
-                <option value="Bourse">Bourse</option>
-                <option value="Université">Université</option>
-                <option value="Entreprise">Entreprise</option>
-                <option value="Autre">Autre</option>
-              </select>
+              <div className="relative">
+                <select
+                  value={form.type_partenariat}
+                  onChange={(e) => setForm({ ...form, type_partenariat: e.target.value })}
+                  className={`${fieldClass(errors.type_partenariat)} appearance-none pr-10 cursor-pointer`}
+                  style={{ backgroundColor: '#102048' }}
+                >
+                  <option value="" style={{ backgroundColor: '#102048', color: 'rgba(255,255,255,0.45)' }}>— Sélectionner —</option>
+                  <option value="Bourse" style={{ backgroundColor: '#102048', color: 'white' }}>Bourse</option>
+                  <option value="Université" style={{ backgroundColor: '#102048', color: 'white' }}>Université</option>
+                  <option value="Entreprise" style={{ backgroundColor: '#102048', color: 'white' }}>Entreprise</option>
+                  <option value="Autre" style={{ backgroundColor: '#102048', color: 'white' }}>Autre</option>
+                </select>
+                <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none" />
+              </div>
               {errors.type_partenariat && (
                 <p className="font-body text-red-lcd text-xs mt-1">{errors.type_partenariat}</p>
               )}

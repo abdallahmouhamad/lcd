@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import { CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react';
 import SectionLabel from '../ui/SectionLabel';
 
 interface FormData {
@@ -104,6 +104,11 @@ export default function ContactBlock() {
       field ? 'border-red-300' : 'border-white/20'
     } text-white placeholder-white/40 rounded-md px-4 py-3 text-sm font-body focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200 min-h-[48px]`;
 
+  const selectClass = (field?: string) =>
+    `w-full appearance-none border ${
+      field ? 'border-red-300' : 'border-white/20'
+    } text-white rounded-md px-4 py-3 pr-10 text-sm font-body focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200 min-h-[48px] cursor-pointer`;
+
   const labelClass = 'block font-body text-white/80 text-xs font-medium mb-1.5 uppercase tracking-wide';
   const errorClass = 'text-red-300 text-xs mt-1 font-body';
 
@@ -184,30 +189,38 @@ export default function ContactBlock() {
               {/* Niveau */}
               <div>
                 <label className={labelClass}>{t('contact_block.niveau_label')}</label>
-                <select
-                  name="niveau" value={form.niveau} onChange={handleChange}
-                  className={inputClass(errors.niveau)}
-                >
-                  <option value="">{t('contact_block.niveau_placeholder')}</option>
-                  {(t('contact_block.niveaux', { returnObjects: true }) as string[]).map((n) => (
-                    <option key={n} value={n}>{n}</option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    name="niveau" value={form.niveau} onChange={handleChange}
+                    className={selectClass(errors.niveau)}
+                    style={{ backgroundColor: '#102048' }}
+                  >
+                    <option value="" style={{ backgroundColor: '#102048', color: 'rgba(255,255,255,0.45)' }}>{t('contact_block.niveau_placeholder')}</option>
+                    {(t('contact_block.niveaux', { returnObjects: true }) as string[]).map((n) => (
+                      <option key={n} value={n} style={{ backgroundColor: '#102048', color: 'white' }}>{n}</option>
+                    ))}
+                  </select>
+                  <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none" />
+                </div>
                 {errors.niveau && <p className={errorClass}>{errors.niveau}</p>}
               </div>
 
               {/* Demande */}
               <div>
                 <label className={labelClass}>{t('contact_block.demande_label')}</label>
-                <select
-                  name="demande" value={form.demande} onChange={handleChange}
-                  className={inputClass(errors.demande)}
-                >
-                  <option value="">{t('contact_block.demande_placeholder')}</option>
-                  {(t('contact_block.demandes', { returnObjects: true }) as string[]).map((d) => (
-                    <option key={d} value={d}>{d}</option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    name="demande" value={form.demande} onChange={handleChange}
+                    className={selectClass(errors.demande)}
+                    style={{ backgroundColor: '#102048' }}
+                  >
+                    <option value="" style={{ backgroundColor: '#102048', color: 'rgba(255,255,255,0.45)' }}>{t('contact_block.demande_placeholder')}</option>
+                    {(t('contact_block.demandes', { returnObjects: true }) as string[]).map((d) => (
+                      <option key={d} value={d} style={{ backgroundColor: '#102048', color: 'white' }}>{d}</option>
+                    ))}
+                  </select>
+                  <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 pointer-events-none" />
+                </div>
                 {errors.demande && <p className={errorClass}>{errors.demande}</p>}
               </div>
 

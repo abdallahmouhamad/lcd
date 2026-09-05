@@ -8,30 +8,30 @@ import ContactBlock from '../components/sections/ContactBlock';
 
 function Section1Hero() {
   return (
-    <section className="relative bg-offwhite pt-32 pb-20 overflow-hidden">
+    <section className="relative bg-navy pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&q=75"
+          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&q=80"
           alt=""
           className="w-full h-full object-cover"
           style={{ objectPosition: '40% center' }}
           loading="eager"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(242,244,247,0.93)" }} />
+        <div className="absolute inset-0 bg-navy/85" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionLabel text="Nos parcours" />
+        <SectionLabel text="Nos parcours" light />
         <h1
-          className="font-heading font-extrabold text-navy leading-tight mb-5"
+          className="font-heading font-extrabold text-white leading-tight mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
         >
           Nos programmes : une éducation d&apos;excellence,
           <br className="hidden md:block" /> au cœur du Sénégal
         </h1>
-        <p className="font-body text-navy/70 italic text-xl mb-5">
+        <p className="font-body text-white/85 italic text-xl mb-5">
           Conçu pour l&apos;Afrique. Reconnu partout.
         </p>
-        <p className="font-body text-text-soft/70 leading-relaxed max-w-2xl mx-auto">
+        <p className="font-body text-white/75 leading-relaxed max-w-2xl mx-auto">
           Au Lycée Canadien de Dakar, les élèves ne se contentent pas de suivre un programme scolaire.
           Ils suivent un parcours pensé pour aiguiser leur esprit, affirmer leur identité et les conduire
           avec assurance vers les universités et les métiers dont ils rêvent.

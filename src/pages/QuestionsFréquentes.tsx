@@ -97,25 +97,25 @@ const faqSchema = {
 
 function Section1Hero() {
   return (
-    <section className="relative bg-offwhite pt-32 pb-20 overflow-hidden">
+    <section className="relative bg-navy pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?w=1400&q=75"
+          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1400&q=80"
           alt=""
           className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(242,244,247,0.93)" }} />
+        <div className="absolute inset-0 bg-navy/85" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionLabel text="FAQ" />
+        <SectionLabel text="FAQ" light />
         <h1
-          className="font-heading font-extrabold text-navy leading-tight mb-5"
+          className="font-heading font-extrabold text-white leading-tight mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
         >
           Vos questions sur le Lycée Canadien de Dakar
         </h1>
-        <p className="font-body text-navy/70 italic text-xl max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/85 italic text-xl max-w-2xl mx-auto leading-relaxed">
           Les réponses aux questions que se posent les familles avant de nous contacter.
         </p>
       </div>

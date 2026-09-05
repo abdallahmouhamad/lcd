@@ -7,31 +7,31 @@ import ContactBlock from '../components/sections/ContactBlock';
 
 function Section1Hero() {
   return (
-    <section className="relative bg-offwhite pt-32 pb-20 overflow-hidden">
+    <section className="relative bg-navy pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1400&q=75"
+          src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1400&q=80"
           alt=""
           className="w-full h-full object-cover"
           style={{ objectPosition: '50% 10%' }}
           loading="eager"
         />
-        <div className="absolute inset-0" style={{ backgroundColor: "rgba(242,244,247,0.93)" }} />
+        <div className="absolute inset-0 bg-navy/85" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionLabel text="Au quotidien" />
+        <SectionLabel text="Au quotidien" light />
         <h1
-          className="font-heading font-extrabold text-navy leading-tight mb-5"
+          className="font-heading font-extrabold text-white leading-tight mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
         >
           La vie au-delà de la salle de classe
         </h1>
-        <p className="font-body text-navy/70 italic text-xl mb-4 max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/85 italic text-xl mb-4 max-w-2xl mx-auto leading-relaxed">
           Au Lycée Canadien de Dakar, les activités hors des cours ne sont pas un supplément. Elles
           font partie intégrante de notre approche pédagogique et de notre promesse : une éducation
           tournée vers l&apos;avenir, qui prépare à l&apos;université, au métier et à la vie.
         </p>
-        <p className="font-body text-navy/60 max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/70 max-w-2xl mx-auto leading-relaxed">
           Nos élèves explorent leurs passions, acquièrent des compétences concrètes et se construisent
           un profil qui les distingue au moment de candidater à l&apos;université.
         </p>

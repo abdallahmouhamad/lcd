@@ -141,16 +141,25 @@ function ArticleModal({ article, onClose }: { article: Article; onClose: () => v
 
 function Section1Hero() {
   return (
-    <section className="bg-offwhite pt-32 pb-20 star-pattern">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <SectionLabel text="Actualités" />
+    <section className="relative bg-navy pt-32 pb-20 overflow-hidden">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=1400&q=80"
+          alt=""
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-navy/85" />
+      </div>
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <SectionLabel text="Actualités" light />
         <h1
-          className="font-heading font-extrabold text-navy leading-tight mb-5"
+          className="font-heading font-extrabold text-white leading-tight mb-5"
           style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
         >
           Actualités du Lycée Canadien de Dakar
         </h1>
-        <p className="font-body text-navy/70 italic text-xl max-w-2xl mx-auto leading-relaxed">
+        <p className="font-body text-white/85 italic text-xl max-w-2xl mx-auto leading-relaxed">
           Les nouvelles de l&apos;école, les temps forts de la vie scolaire et nos repères sur
           l&apos;éducation internationale.
         </p>
