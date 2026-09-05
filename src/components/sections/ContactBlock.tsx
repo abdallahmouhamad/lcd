@@ -67,14 +67,16 @@ export default function ContactBlock() {
     setStatus('sending');
 
     try {
-      const formspreeUrl =
-        import.meta.env.VITE_FORMSPREE_ADMISSIONS ||
-        'https://formspree.io/f/REMPLACER';
+      const endpoint =
+        import.meta.env.VITE_FORM_ADMISSIONS ||
+        'https://formsubmit.co/ajax/abou050793@gmail.com';
 
-      const res = await fetch(formspreeUrl, {
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
+          _subject: `Nouvelle demande LCD — ${form.demande} (${form.niveau})`,
+          _captcha: 'false',
           nom: form.nom,
           email: form.email,
           telephone: form.telephone,
@@ -85,7 +87,8 @@ export default function ContactBlock() {
         }),
       });
 
-      if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.success === 'true' || data.success === true || res.status === 200)) {
         setStatus('success');
         setTimeout(() => navigate('/merci'), 2000);
       } else {

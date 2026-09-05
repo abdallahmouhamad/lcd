@@ -1,21 +1,19 @@
 import { MessageCircle } from 'lucide-react';
-
-interface WhatsAppButtonProps {
-  page?: string;
-}
+import { useLocation } from 'react-router-dom';
 
 const messages: Record<string, string> = {
-  programmes:
+  '/programmes':
     'Bonjour, je souhaite des informations sur les programmes du Lycée Canadien de Dakar.',
-  admissions:
+  '/admissions':
     'Bonjour, je souhaite inscrire mon enfant au Lycée Canadien de Dakar.',
   default:
     'Bonjour, je souhaite des informations sur le Lycée Canadien de Dakar.',
 };
 
-export default function WhatsAppButton({ page = 'default' }: WhatsAppButtonProps) {
+export default function WhatsAppButton() {
+  const { pathname } = useLocation();
   const number = import.meta.env.VITE_WHATSAPP_NUMBER || '221787359256';
-  const message = encodeURIComponent(messages[page] || messages.default);
+  const message = encodeURIComponent(messages[pathname] || messages.default);
   const href = `https://wa.me/${number}?text=${message}`;
 
   return (

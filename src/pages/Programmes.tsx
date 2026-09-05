@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/ui/SEOHead';
 import SectionLabel from '../components/ui/SectionLabel';
 import ContactBlock from '../components/sections/ContactBlock';
-import WhatsAppButton from '../components/ui/WhatsAppButton';
 
 function Section1Hero() {
   return (
@@ -627,7 +626,6 @@ export default function Programmes() {
       <Section3Parcours />
       <Section4Tableau />
       <Section5Debouches />
-      <WhatsAppButton page="programmes" />
       <ContactBlock />
     </>
   );

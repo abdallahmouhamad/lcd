@@ -9,7 +9,6 @@ import SEOHead from '../components/ui/SEOHead';
 import SectionLabel from '../components/ui/SectionLabel';
 import { Link } from 'react-router-dom';
 import ContactBlock from '../components/sections/ContactBlock';
-import WhatsAppButton from '../components/ui/WhatsAppButton';
 
 function Section1Hero() {
   return (
@@ -347,7 +346,6 @@ export default function Admissions() {
       <Section3Pourquoi />
       <Section4Processus />
       <Section5Pieces />
-      <WhatsAppButton page="admissions" />
       <div id="contact-block">
         <ContactBlock />
       </div>

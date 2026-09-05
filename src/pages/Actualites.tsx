@@ -3,6 +3,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X } from 'lucide-react';
 import SEOHead from '../components/ui/SEOHead';
 import SectionLabel from '../components/ui/SectionLabel';
+import ContactBlock from '../components/sections/ContactBlock';
 
 interface Article {
   categorie: string;
@@ -228,6 +229,7 @@ export default function Actualites() {
       />
       <Section1Hero />
       <Section2Articles />
+      <ContactBlock />
     </>
   );
 }

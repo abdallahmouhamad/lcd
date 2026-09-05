@@ -3,8 +3,9 @@ import { motion, useInView } from 'framer-motion';
 import { CheckCircle2, Heart, GraduationCap, Briefcase, Network, Target, Star, Wrench } from 'lucide-react';
 import SEOHead from '../components/ui/SEOHead';
 import SectionLabel from '../components/ui/SectionLabel';
+import ContactBlock from '../components/sections/ContactBlock';
 
-// Ce formulaire est routé vers partenariats@lcd.sn
+// Ce formulaire est routé vers partenariats@lcd.sn via VITE_FORMSPREE_PARTENAIRES
 // via VITE_FORMSPREE_PARTENAIRES — DISTINCT du formulaire admissions
 // Ne jamais mélanger les deux flux (section 8 du brief client)
 
@@ -193,7 +194,9 @@ interface FormData {
 }
 
 function Section4Formulaire() {
-  const endpointUrl = import.meta.env.VITE_FORMSPREE_PARTENAIRES as string | undefined;
+  const endpointUrl =
+    (import.meta.env.VITE_FORM_PARTENAIRES as string | undefined) ||
+    'https://formsubmit.co/ajax/abou050793@gmail.com';
 
   const [form, setForm] = useState<FormData>({
     organisation: '',
@@ -222,12 +225,17 @@ function Section4Formulaire() {
     if (!validate()) return;
     setStatus('sending');
     try {
-      const res = await fetch(endpointUrl ?? '', {
+      const res = await fetch(endpointUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          _subject: `Nouveau partenariat LCD — ${form.type_partenariat}`,
+          _captcha: 'false',
+          ...form,
+        }),
       });
-      setStatus(res.ok ? 'success' : 'error');
+      const data = await res.json().catch(() => ({}));
+      setStatus(res.ok && (data.success === 'true' || data.success === true) ? 'success' : 'error');
     } catch {
       setStatus('error');
     }
@@ -396,6 +404,7 @@ export default function Partenaires() {
       <Section2Modele />
       <Section3Formes />
       <Section4Formulaire />
+      <ContactBlock />
     </>
   );
 }
