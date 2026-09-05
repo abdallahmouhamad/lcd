@@ -3,17 +3,17 @@ import { motion, useInView } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import SectionLabel from '../ui/SectionLabel';
 import bemLogo from '../../assets/images/bem.jpeg';
-import camesLogo from '../../assets/images/cames.jpg';
-import anaqLogo from '../../assets/images/anaqsup.png';
+import picLogo from '../../assets/images/pic.webp';
+import louisLogo from '../../assets/images/Logo_Lycée_Louis-le-Grand.png';
 import ontarioLogo from '../../assets/images/dso.png';
 import pisaLogo from '../../assets/images/pisa.jpeg';
 
 const partenaires = [
-  { src: bemLogo,     alt: 'BEM Dakar',                                          key: 'bem' },
-  { src: camesLogo,   alt: 'CAMES — Conseil Africain et Malgache',               key: 'cames' },
-  { src: anaqLogo,    alt: 'ANAQ-SUP Sénégal',                                   key: 'anaq' },
-  { src: ontarioLogo, alt: 'Ontario DESO — Ministère de l\'Éducation',           key: 'ontario' },
-  { src: pisaLogo,    alt: 'PISA — Programme International pour le Suivi des Acquis', key: 'pisa' },
+  { src: bemLogo,     alt: 'BEM Dakar',                                                      key: 'bem' },
+  { src: picLogo,     alt: 'Performation Immigration (PIC)',                                  key: 'pic' },
+  { src: louisLogo,   alt: 'École Louis-le-Grand',                                            key: 'louis' },
+  { src: ontarioLogo, alt: 'Ontario DESO — Ministère de l\'Éducation',                       key: 'ontario' },
+  { src: pisaLogo,    alt: 'PISA — Programme International pour le Suivi des Acquis',         key: 'pisa' },
 ];
 
 export default function Intro() {

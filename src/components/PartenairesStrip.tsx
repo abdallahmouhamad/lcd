@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import bemLogo from '../assets/images/bem.jpeg';
-import camesLogo from '../assets/images/cames.jpg';
-import anaqLogo from '../assets/images/anaqsup.png';
+import picLogo from '../assets/images/pic.webp';
+import louisLogo from '../assets/images/Logo_Lycée_Louis-le-Grand.png';
 import ontarioLogo from '../assets/images/dso.png';
 
 const logos = [
-  { src: bemLogo, alt: 'BEM Dakar — école partenaire fondatrice', key: 'bem' },
-  { src: camesLogo, alt: 'CAMES — Conseil Africain et Malgache pour l\'Enseignement Supérieur', key: 'cames' },
-  { src: anaqLogo, alt: 'ANAQ-SUP Sénégal — Autorité Nationale d\'Assurance Qualité', key: 'anaq' },
-  { src: ontarioLogo, alt: 'Ontario DESO — Ministère de l\'Éducation de l\'Ontario', key: 'ontario' },
+  { src: bemLogo,     alt: 'BEM Dakar — école partenaire fondatrice',                      key: 'bem' },
+  { src: picLogo,     alt: 'Performation Immigration (PIC) — partenaire immigration',       key: 'pic' },
+  { src: louisLogo,   alt: 'École Louis-le-Grand — partenaire académique',                  key: 'louis' },
+  { src: ontarioLogo, alt: 'Ontario DESO — Ministère de l\'Éducation de l\'Ontario',        key: 'ontario' },
 ];
 
 export default function PartenairesStrip() {
