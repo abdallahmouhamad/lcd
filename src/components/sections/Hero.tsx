@@ -53,6 +53,24 @@ const heroImages = [
 
 const INTERVAL_MS = 4500;
 
+function playTing() {
+  try {
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(1046, ctx.currentTime);       // Do6
+    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.06); // La5
+    gain.gain.setValueAtTime(0.18, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
+    osc.start(ctx.currentTime);
+    osc.stop(ctx.currentTime + 1.2);
+    ctx.close();
+  } catch { /* AudioContext non disponible */ }
+}
+
 export default function Hero() {
   const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
@@ -62,6 +80,15 @@ export default function Hero() {
       setCurrent((i) => (i + 1) % heroImages.length);
     }, INTERVAL_MS);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (sessionStorage.getItem('lcd_ting_played')) return;
+    const timer2 = setTimeout(() => {
+      playTing();
+      sessionStorage.setItem('lcd_ting_played', '1');
+    }, 1400);
+    return () => clearTimeout(timer2);
   }, []);
 
   return (

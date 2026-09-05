@@ -54,8 +54,7 @@ const portraits: Portrait[] = [
     citation:
       "Le Lycée Canadien de Dakar est né d'une conviction simple : nos enfants méritent le meilleur, ici, chez eux. Nous voulons former des jeunes solides, curieux, autonomes, prêts à réussir aussi bien dans les grandes écoles du monde que dans la vie. Nous plaçons l'élève au centre de tout. Nous cultivons l'excellence, l'ouverture et l'esprit critique, au cœur d'un continent qui avance.",
     bio: "32 ans d'expérience dans l'enseignement supérieur · Docteur en Sciences de Gestion, diplômé de l'ESSEC de Paris · Chevalier de l'Ordre National du Lion · Officier de l'Ordre National du Mérite",
-    // TODO: remplacer par portrait officiel Dr Pape Madické DIOP
-    photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80",
+    photo: "/dr-pape-diop.jpg",
     photoAlt: "Portrait Dr Pape Madické DIOP",
   },
   {
@@ -64,8 +63,7 @@ const portraits: Portrait[] = [
     citation:
       "Depuis 2011, j'accompagne des jeunes Africains vers les meilleures opportunités internationales. L'aventure a commencé au Canada, puis à Douala, à Yaoundé, et aujourd'hui à Dakar. En 2019, nous avons ouvert la première école du Cameroun à promouvoir le diplôme secondaire de l'Ontario, issu d'un système classé parmi les cinq meilleurs au monde. Le Lycée Canadien de Dakar prolonge ce parcours. Notre but est simple : former une génération fière de ses racines et prête à conquérir le monde.",
     bio: "Plus de 15 ans dans l'éducation internationale · À l'origine, en 2019, de la première école du Cameroun à promouvoir le diplôme secondaire de l'Ontario · Consultante réglementée en immigration canadienne",
-    // TODO: remplacer par portrait officiel Mme Brigitte CHATUÉ TCHATAT
-    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80",
+    photo: "/brigitte-chatue.jpg",
     photoAlt: "Portrait Mme Brigitte CHATUÉ TCHATAT",
   },
 ];
