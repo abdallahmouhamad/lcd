@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 function handleResetCookies() {
   localStorage.removeItem('lcd_cookies');
@@ -78,15 +78,6 @@ export default function Footer() {
                 <MapPin size={14} className="text-gold shrink-0" />
                 Point E, Dakar — Sénégal
               </div>
-              <a
-                href="https://lcd.sn"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors duration-200"
-              >
-                <Globe size={14} className="text-gold shrink-0" />
-                www.lcd.sn
-              </a>
             </div>
           </div>
 

@@ -166,6 +166,105 @@ function AccordionItem({ item, isOpen, onToggle }: {
   );
 }
 
+const septQuestions = [
+  {
+    num: "1",
+    question: "Qui délivre exactement le diplôme, et sous quelle autorité ?",
+    detail: "C'est la question la plus importante, et celle où les réponses floues sont les plus fréquentes. Demandez un nom et une autorité de tutelle.",
+  },
+  {
+    num: "2",
+    question: "Ce diplôme nécessite-t-il une équivalence pour candidater à l'étranger ?",
+    detail: "Une équivalence, c'est du temps, des frais et un risque de refus. La réponse change tout pour votre enfant.",
+  },
+  {
+    num: "3",
+    question: "Combien d'élèves par classe, réellement, cette année ?",
+    detail: "Demandez le chiffre effectif, pas l'objectif affiché. Un suivi personnalisé à trente-cinq élèves n'existe pas.",
+  },
+  {
+    num: "4",
+    question: "Qui est le responsable de la protection de l'enfance, et puis-je le rencontrer ?",
+    detail: "S'il existe, on vous le présentera. S'il n'existe pas, la réponse sera longue.",
+  },
+  {
+    num: "5",
+    question: "Que se passe-t-il concrètement après le diplôme ?",
+    detail: "Demandez le dispositif d'orientation : à partir de quelle classe, par qui, avec quel suivi. Une réunion en Terminale n'est pas un accompagnement.",
+  },
+  {
+    num: "6",
+    question: "Quels sont tous les frais, y compris ceux qui ne figurent pas dans la scolarité ?",
+    detail: "Inscription, examens, matériel, sorties, uniforme. Exigez le coût annuel complet avant de vous engager.",
+  },
+  {
+    num: "7",
+    question: "Si mon enfant ne s'y plaît pas, que se passe-t-il ?",
+    detail: "Une école honnête a une réponse à cette question. Elle ne se fâche pas qu'on la pose.",
+  },
+];
+
+function Section3SeptQuestions() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
+
+  return (
+    <section className="bg-navy py-20 md:py-28" ref={ref}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+        >
+          <SectionLabel text="Un outil pour vous" light />
+          <h2
+            className="font-heading font-extrabold text-white leading-tight mb-4"
+            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.6rem)' }}
+          >
+            Les 7 questions à poser avant de choisir une école internationale
+          </h2>
+          <p className="font-body text-white/60 text-base leading-relaxed mb-12 max-w-2xl">
+            Posez-les à toutes les écoles que vous visiterez, y compris à nous. Une école qui répond clairement à ces sept questions mérite votre confiance. Une école qui esquive vous apprend déjà quelque chose.
+          </p>
+
+          <div className="flex flex-col gap-4">
+            {septQuestions.map((q, i) => (
+              <motion.div
+                key={q.num}
+                initial={{ opacity: 0, x: -12 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.4, delay: i * 0.07 }}
+                className="flex gap-5 items-start bg-white/5 border border-white/10 rounded-xl px-6 py-5"
+              >
+                <span
+                  className="font-heading font-extrabold text-gold leading-none shrink-0 mt-0.5"
+                  style={{ fontSize: '1.4rem' }}
+                >
+                  {q.num}
+                </span>
+                <div>
+                  <p className="font-heading font-semibold text-white text-base leading-snug mb-1">
+                    {q.question}
+                  </p>
+                  <p className="font-body text-white/55 text-sm leading-relaxed">
+                    {q.detail}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="font-body text-white/50 text-sm mb-4 italic">
+              Venez nous les poser — nous répondons à ces sept questions en face à face, sans détour.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Section2Accordeon() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const ref = useRef(null);
@@ -209,6 +308,7 @@ export default function QuestionsFréquentes() {
       </Helmet>
       <Section1Hero />
       <Section2Accordeon />
+      <Section3SeptQuestions />
       <ContactBlock />
     </>
   );

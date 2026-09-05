@@ -56,18 +56,25 @@ const INTERVAL_MS = 4500;
 function playTing() {
   try {
     const ctx = new AudioContext();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(1046, ctx.currentTime);       // Do6
-    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.06); // La5
-    gain.gain.setValueAtTime(0.18, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + 1.2);
-    ctx.close();
+    const doPlay = () => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1046, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.06);
+      gain.gain.setValueAtTime(0.18, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 1.2);
+      osc.onended = () => ctx.close();
+    };
+    if (ctx.state === 'suspended') {
+      ctx.resume().then(doPlay);
+    } else {
+      doPlay();
+    }
   } catch { /* AudioContext non disponible */ }
 }
 
@@ -84,11 +91,25 @@ export default function Hero() {
 
   useEffect(() => {
     if (sessionStorage.getItem('lcd_ting_played')) return;
-    const timer2 = setTimeout(() => {
+
+    const fire = () => {
+      document.removeEventListener('scroll', fire);
+      document.removeEventListener('click', fire);
+      document.removeEventListener('touchstart', fire);
       playTing();
       sessionStorage.setItem('lcd_ting_played', '1');
-    }, 1400);
-    return () => clearTimeout(timer2);
+    };
+
+    // Déclenche dès la première interaction (autoplay policy)
+    document.addEventListener('scroll', fire, { once: true });
+    document.addEventListener('click', fire, { once: true });
+    document.addEventListener('touchstart', fire, { once: true, passive: true });
+
+    return () => {
+      document.removeEventListener('scroll', fire);
+      document.removeEventListener('click', fire);
+      document.removeEventListener('touchstart', fire);
+    };
   }, []);
 
   return (
