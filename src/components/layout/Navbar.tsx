@@ -31,6 +31,27 @@ const navLinks = [
 
 const CONTACT_PAGES = ['/admissions', '/contact'];
 
+function FlagFR() {
+  return (
+    <svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" className="rounded-sm overflow-hidden shrink-0" aria-hidden="true">
+      <rect width="6.67" height="14" fill="#002395" />
+      <rect x="6.67" width="6.66" height="14" fill="#fff" />
+      <rect x="13.33" width="6.67" height="14" fill="#ED2939" />
+    </svg>
+  );
+}
+
+function FlagCA() {
+  return (
+    <svg width="20" height="14" viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" className="rounded-sm overflow-hidden shrink-0" aria-hidden="true">
+      <rect width="20" height="14" fill="#fff" />
+      <rect width="5" height="14" fill="#FF0000" />
+      <rect x="15" width="5" height="14" fill="#FF0000" />
+      <path d="M10 2.5 L11.2 5.8 L14.5 5.1 L12.6 7.4 L14.2 7.1 L10 11.5 L5.8 7.1 L7.4 7.4 L5.5 5.1 L8.8 5.8 Z" fill="#FF0000" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
@@ -157,9 +178,7 @@ export default function Navbar() {
                 className={`flex items-center gap-1.5 text-sm font-body px-2 py-1 rounded transition-colors duration-200 ${textColor} hover:text-red-lcd`}
                 aria-label="Changer de langue"
               >
-                <span className="text-base">
-                  {i18n.language === 'fr' ? '🇫🇷' : '🇨🇦'}
-                </span>
+                {i18n.language === 'fr' ? <FlagFR /> : <FlagCA />}
                 <span className="text-xs font-semibold uppercase">
                   {i18n.language === 'fr' ? 'FR' : 'EN'}
                 </span>
@@ -189,7 +208,7 @@ export default function Navbar() {
                 className={`text-base ${textColor}`}
                 aria-label="Changer de langue"
               >
-                {i18n.language === 'fr' ? '🇫🇷' : '🇨🇦'}
+                {i18n.language === 'fr' ? <FlagFR /> : <FlagCA />}
               </button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
