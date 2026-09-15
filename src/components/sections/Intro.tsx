@@ -86,7 +86,7 @@ export default function Intro() {
           <div
             role="list"
             aria-label="Nos partenaires institutionnels et académiques"
-            className="flex flex-wrap justify-center items-center gap-8 md:gap-14 mb-8"
+            className="flex flex-wrap justify-center items-center gap-6 md:gap-14 mb-8"
           >
             {partenaires.map(({ src, alt, key, h }, i) => (
               <motion.div

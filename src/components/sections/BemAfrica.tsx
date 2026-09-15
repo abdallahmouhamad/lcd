@@ -58,7 +58,7 @@ export default function BemAfrica() {
           {stats.map(({ value, label }) => (
             <div
               key={label}
-              className="bg-navy px-6 py-8 text-center"
+              className="bg-navy px-4 py-6 md:px-6 md:py-8 text-center"
             >
               <p
                 className="font-heading font-extrabold text-gold leading-none mb-2"

@@ -77,7 +77,7 @@ export default function DilemmeParent() {
           </p>
 
           {/* Encadré La troisième voie */}
-          <div className="bg-navy rounded-2xl px-8 py-10 md:px-12">
+          <div className="bg-navy rounded-2xl px-5 py-8 md:px-12 md:py-10">
             <p className="font-heading font-semibold text-gold text-xs tracking-widest uppercase mb-4">
               La troisième voie
             </p>

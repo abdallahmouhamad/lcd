@@ -79,7 +79,7 @@ export default function Differenciateurs() {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.55 }}
-          className="bg-navy rounded-2xl py-8 px-8 flex flex-col md:flex-row items-center justify-between gap-4"
+          className="bg-navy rounded-2xl py-8 px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left"
         >
           <div className="flex items-baseline gap-3">
             <span className="font-heading font-extrabold text-gold" style={{ fontSize: '3rem' }}>
