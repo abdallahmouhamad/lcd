@@ -12,7 +12,7 @@ const partenaires = [
   { src: bemLogo,       alt: 'BEM Dakar',                                           key: 'bem',        h: 96 },
   { src: bemAfricaLogo, alt: 'BEM Africa — réseau panafricain',                     key: 'bem-africa', h: 92 },
   { src: picLogo,       alt: 'Performation Immigration (PIC)',                       key: 'pic',        h: 80 },
-  { src: louisLogo,     alt: 'École Louis-le-Grand',                                key: 'louis',      h: 84 },
+  { src: louisLogo,     alt: 'École Louis-le-Grand',                                key: 'louis',      h: 56 },
   { src: ocdeLogo,      alt: 'OCDE — Organisation de Coopération et Développement', key: 'ocde',       h: 92 },
 ];
 
