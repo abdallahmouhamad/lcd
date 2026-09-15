@@ -1,6 +1,6 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { BookOpen, Users, Shield, ArrowRight } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { BookOpen, Users, Shield, ArrowRight, ChevronDown } from 'lucide-react';
 import SEOHead from '../components/ui/SEOHead';
 import SectionLabel from '../components/ui/SectionLabel';
 import ContactBlock from '../components/sections/ContactBlock';
@@ -360,6 +360,114 @@ function Section5Equipe() {
   );
 }
 
+const septQuestions = [
+  {
+    q: "Qui délivre exactement le diplôme, et sous quelle autorité ?",
+    r: "C'est la question la plus importante, et celle où les réponses floues sont les plus fréquentes. Au LCD, le DESO est délivré par notre école partenaire canadienne, accréditée par le ministère de l'Éducation de l'Ontario. Nous vous remettons le nom et les coordonnées de cet établissement dès le premier échange.",
+  },
+  {
+    q: "Ce diplôme nécessite-t-il une équivalence pour candidater à l'étranger ?",
+    r: "Non. Le Diplôme d'Études Secondaires de l'Ontario est lu directement par les universités canadiennes, américaines et britanniques, sans procédure d'équivalence. C'est un avantage décisif pour un élève francophone qui candidate depuis l'Afrique.",
+  },
+  {
+    q: "Combien d'élèves par classe, réellement, cette année ?",
+    r: "Nos effectifs sont volontairement limités. Nous vous communiquons le nombre effectif d'élèves par classe lors de la visite — pas un objectif affiché, le chiffre réel. Un suivi personnalisé à trente-cinq élèves n'existe pas.",
+  },
+  {
+    q: "Qui est le responsable de la protection de l'enfance, et puis-je le rencontrer ?",
+    r: "Oui. Le responsable de la protection de l'enfance est identifié, formé et joignable. Les élèves et les parents savent à qui s'adresser. Nous vous le présentons pendant la visite.",
+  },
+  {
+    q: "Que se passe-t-il concrètement après le diplôme ?",
+    r: "L'orientation universitaire est intégrée au parcours dès la Seconde : exploration en Seconde, ciblage en Première, candidature en Terminale. Ce n'est pas un rendez-vous de fin d'année — c'est un programme sur trois ans, piloté par notre Directrice Générale, consultante réglementée en immigration canadienne.",
+  },
+  {
+    q: "Quels sont tous les frais, y compris ceux qui ne figurent pas dans la scolarité ?",
+    r: "Nous vous présentons le coût annuel complet — inscription, examens, matériel, tout — dès le premier échange, par écrit. Il n'y a pas de frais cachés. Des facilités de paiement et des bourses partielles peuvent être étudiées selon le dossier.",
+  },
+  {
+    q: "Si mon enfant ne s'y plaît pas, que se passe-t-il ?",
+    r: "Nous en discutons. Une école honnête a une réponse claire à cette question et ne se fâche pas qu'on la pose. Notre priorité est que votre enfant trouve l'environnement qui lui convient — et si ce n'est pas le LCD, nous vous le dirons.",
+  },
+];
+
+function Section6SeptQuestions() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
+  const [open, setOpen] = useState<number | null>(null);
+
+  return (
+    <section className="bg-white py-20 md:py-28" ref={ref}>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.55 }}
+          className="text-center mb-12"
+        >
+          <SectionLabel text="Transparence" />
+          <h2
+            className="font-heading font-extrabold text-navy"
+            style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.6rem)' }}
+          >
+            Les 7 questions à poser avant de choisir une école internationale
+          </h2>
+          <p className="font-body text-navy/60 mt-4 leading-relaxed max-w-xl mx-auto">
+            Posez-les à toutes les écoles que vous visiterez, y compris à nous. Une école qui répond
+            clairement mérite votre confiance. Une école qui esquive vous apprend déjà quelque chose.
+          </p>
+        </motion.div>
+
+        <div className="flex flex-col gap-2">
+          {septQuestions.map(({ q, r }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
+              className="border border-navy/10 rounded-xl overflow-hidden"
+            >
+              <button
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-start justify-between gap-4 px-6 py-5 text-left hover:bg-offwhite transition-colors duration-200"
+                aria-expanded={open === i}
+              >
+                <div className="flex items-start gap-4">
+                  <span className="font-heading font-extrabold text-gold text-sm shrink-0 mt-0.5">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="font-heading font-semibold text-navy text-sm leading-snug">
+                    {q}
+                  </span>
+                </div>
+                <ChevronDown
+                  size={18}
+                  className={`text-navy/40 shrink-0 mt-0.5 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`}
+                />
+              </button>
+              <AnimatePresence initial={false}>
+                {open === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 pb-5 pl-14">
+                      <p className="font-body text-navy/70 text-sm leading-relaxed">{r}</p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function APropos() {
   return (
     <>
@@ -373,6 +481,7 @@ export default function APropos() {
       <Section3BEM />
       <Section4Singularite />
       <Section5Equipe />
+      <Section6SeptQuestions />
       <ContactBlock />
     </>
   );

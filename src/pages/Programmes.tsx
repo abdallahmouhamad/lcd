@@ -112,7 +112,7 @@ const parcoursData: Parcours[] = [
     tagBg: 'bg-red-lcd/10 text-red-lcd',
     tagColor: 'text-red-lcd',
     texte:
-      "Votre enfant suit un programme entièrement canadien, conforme au curriculum de l'Ontario. Il valide chaque cours à son rythme, sans examen d'État couperet. La réussite des cours obligatoires suffit à obtenir le diplôme.",
+      "Votre enfant suit un programme entièrement canadien, conforme au curriculum de l'Ontario. Il valide chaque cours à son rythme, sans examen final unique. La réussite des cours obligatoires suffit à obtenir le diplôme.",
     cleLabel: 'À la clé',
     cle:
       "Le Diplôme d'Études Secondaires de l'Ontario (DESO), communément appelé le Bac Canadien. Ce diplôme est délivré par notre école partenaire canadienne, accréditée par le ministère de l'Éducation de l'Ontario. Le Lycée Canadien de Dakar est la première école internationale au Sénégal à le promouvoir. Le nom et les coordonnées de notre école partenaire vous sont communiqués lors du premier entretien. La convention de partenariat est disponible sur demande auprès de la Direction.",

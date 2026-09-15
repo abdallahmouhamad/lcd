@@ -4,7 +4,9 @@ import DilemmeParent from '../components/sections/DilemmeParent';
 import Intro from '../components/sections/Intro';
 import Programmes from '../components/sections/Programmes';
 import Differenciateurs from '../components/sections/Differenciateurs';
+import BemAfrica from '../components/sections/BemAfrica';
 import Protection from '../components/sections/Protection';
+import VieAuLCD from '../components/sections/VieAuLCD';
 import FamillesLien from '../components/sections/FamillesLien';
 import ClosingCTA from '../components/sections/ClosingCTA';
 import ContactBlock from '../components/sections/ContactBlock';
@@ -22,7 +24,9 @@ export default function Home() {
       <DilemmeParent />
       <Programmes />
       <Differenciateurs />
+      <BemAfrica />
       <Protection />
+      <VieAuLCD />
       <FamillesLien />
       <ClosingCTA />
       <ContactBlock />

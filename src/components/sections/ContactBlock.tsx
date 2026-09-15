@@ -115,7 +115,45 @@ export default function ContactBlock() {
   return (
     <section className="bg-navy py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-[5fr_7fr] gap-16 items-start">
+
+          {/* Colonne image — masquée sur mobile */}
+          <div className="hidden md:block sticky top-32">
+            <div className="rounded-2xl overflow-hidden shadow-card mb-8">
+              <img
+                src="https://images.unsplash.com/photo-1758876202124-cc941ebb8446?w=700&q=80"
+                alt="L'équipe du Lycée Canadien de Dakar à votre écoute"
+                loading="lazy"
+                className="w-full h-[340px] object-cover"
+              />
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" />
+                <div>
+                  <p className="font-body text-white/40 text-xs uppercase tracking-widest mb-0.5">Téléphone & WhatsApp</p>
+                  <p className="font-heading font-semibold text-white text-sm">+221 78 735 92 56</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" />
+                <div>
+                  <p className="font-body text-white/40 text-xs uppercase tracking-widest mb-0.5">Email</p>
+                  <p className="font-heading font-semibold text-white text-sm">contact@lcd.sn</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 flex-shrink-0" />
+                <div>
+                  <p className="font-body text-white/40 text-xs uppercase tracking-widest mb-0.5">Adresse</p>
+                  <p className="font-heading font-semibold text-white text-sm">Point E · Dakar, Sénégal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Colonne formulaire */}
+          <div>
 
           <div className="text-center mb-12">
             <SectionLabel text="Contact" light />
@@ -272,7 +310,8 @@ export default function ContactBlock() {
               </div>
             </div>
           )}
-        </div>
+          </div>{/* fin colonne formulaire */}
+        </div>{/* fin grid */}
       </div>
     </section>
   );

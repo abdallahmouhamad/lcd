@@ -38,12 +38,20 @@ function Section1Hero() {
         <p className="font-body text-white/70 mb-8">
           Les inscriptions sont ouvertes, de la 6ᵉ à la Terminale.
         </p>
-        <a
-          href="#contact-block"
-          className="inline-flex items-center justify-center bg-red-lcd hover:bg-red-hover text-white font-heading font-semibold text-sm px-8 py-4 rounded-md transition-colors duration-200 uppercase tracking-wide min-h-[52px]"
-        >
-          Demander un rendez-vous
-        </a>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <a
+            href="#contact-block"
+            className="inline-flex items-center justify-center bg-red-lcd hover:bg-red-hover text-white font-heading font-semibold text-sm px-8 py-4 rounded-md transition-colors duration-200 uppercase tracking-wide min-h-[52px]"
+          >
+            Demander un rendez-vous
+          </a>
+          <a
+            href="#processus"
+            className="inline-flex items-center justify-center border-2 border-white/40 text-white hover:bg-white/10 font-heading font-semibold text-sm px-8 py-4 rounded-md transition-colors duration-200 uppercase tracking-wide min-h-[52px]"
+          >
+            Planifier une visite
+          </a>
+        </div>
       </div>
     </section>
   );
@@ -220,7 +228,7 @@ function Section4Processus() {
           <p className="font-body text-text-soft/70 mt-3">Simple. Accompagné. Personnalisé.</p>
         </div>
 
-        <div className="relative">
+        <div id="processus" className="relative">
           <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-border-light z-0" />
           <div className="grid md:grid-cols-4 gap-8">
             {etapes.map((e, i) => (
